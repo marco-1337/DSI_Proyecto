@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UIToolkit/TriangleDripper.uss?fileID=7433441132597879392&amp;guid=9dec953743cfec347b9732aeebbac81e&amp;type=3#TriangleDripper" />
+    <ui:VisualElement name="baseMenu" style="flex-grow: 1; flex-direction: row;">
+        <ui:VisualElement name="leftArea" style="flex-grow: 1;" />
+        <ui:VisualElement name="rightArea" style="flex-grow: 1;">
+            <ui:VisualElement name="itemSelector" style="flex-grow: 1;" />
+            <ui:VisualElement name="button" style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="baseResult" style="flex-grow: 1; display: none;" />
+</ui:UXML>

@@ -1,0 +1,64 @@
+:root {
+    --pink: rgb(255, 207, 207);
+    --blue-1: rgb(188, 196, 210);
+    --blue-2: rgb(206, 217, 238);
+    --blue-3: rgb(237, 243, 255);
+    --yellow-1: rgb(253, 232, 188);
+    --yellow-2: rgb(242, 207, 132);
+    --white: rgb(255, 255, 255);
+}
+
+.pinkBg {
+    background-color: var(--pink);
+}
+
+.blue1Bg {
+    background-color: var(--blue-1);
+}
+
+.blue2Bg {
+    background-color: var(--blue-2);
+}
+
+.blue3Bg {
+    background-color: var(--blue-3);
+}
+
+.yellow1Bg {
+    background-color: var(--yellow-1);
+}
+
+.yellow2Bg {
+    background-color: var(--yellow-2);
+}
+
+.button {
+}
+
+.button:hover {
+    scale: 1.2;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.tab {
+}
+
+.item {
+    background-color: var(--white);
+    margin: 20px;
+    max-width: 150px;
+    min-width: 150px;
+    max-height: 150px;
+    min-height: 150px;
+}
+
+.text {
+    -unity-font-definition: resource('Fonts/KeaniaOne-Regular SDF');
+    font-size: 72px;
+    -unity-text-align: middle-center;
+}

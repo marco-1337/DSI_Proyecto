@@ -3,9 +3,10 @@
     <ui:VisualElement name="baseMenu" style="flex-grow: 1; flex-direction: row;">
         <ui:VisualElement name="leftArea" class="pinkBg" style="flex-grow: 1;">
             <ui:VisualElement name="character" style="flex-grow: 1;">
-                <ui:VisualElement style="flex-grow: 1;" />
-                <ui:VisualElement name="face" style="flex-grow: 1;" />
-                <ui:VisualElement name="body" style="flex-grow: 1; background-image: resource(&apos;Images/triangle_purple&apos;); -unity-background-scale-mode: scale-to-fit; min-height: 90%; bottom: -80px; max-height: 90%;" />
+                <ui:VisualElement name="body" class="position-absolute" style="flex-grow: 1; background-image: resource(&apos;Images/triangle_purple&apos;); -unity-background-scale-mode: scale-to-fit; min-height: auto; bottom: -80px; max-height: none; min-width: auto; height: 800px;" />
+                <ui:VisualElement name="face" class="position-absolute" style="flex-grow: 1; background-image: resource(&apos;Images/face1&apos;); -unity-background-scale-mode: scale-to-fit; min-height: auto; height: 150px; top: 425px;" />
+                <ui:VisualElement name="accessory" class="position-absolute" style="flex-grow: 1; background-image: resource(&apos;Images/sunglasses&apos;); -unity-background-scale-mode: scale-to-fit; height: 250px; top: 350px;" />
+                <ui:VisualElement name="hat" class="position-absolute" style="flex-grow: 1; height: 375px; background-image: resource(&apos;Images/Obey_cap&apos;); -unity-background-scale-mode: scale-to-fit; top: 101px;" />
             </ui:VisualElement>
             <ui:Label tabindex="-1" text="TRIANGLE DRIPPER" parse-escape-sequences="true" display-tooltip-when-elided="true" class="text" style="height: 18%;" />
         </ui:VisualElement>

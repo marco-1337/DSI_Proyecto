@@ -2,7 +2,11 @@
     <Style src="project://database/Assets/UIToolkit/TriangleDripper.uss?fileID=7433441132597879392&amp;guid=9dec953743cfec347b9732aeebbac81e&amp;type=3#TriangleDripper" />
     <ui:VisualElement name="baseMenu" style="flex-grow: 1; flex-direction: row;">
         <ui:VisualElement name="leftArea" class="pinkBg" style="flex-grow: 1;">
-            <ui:VisualElement style="flex-grow: 1;" />
+            <ui:VisualElement name="character" style="flex-grow: 1;">
+                <ui:VisualElement style="flex-grow: 1;" />
+                <ui:VisualElement name="face" style="flex-grow: 1;" />
+                <ui:VisualElement name="body" style="flex-grow: 1; background-image: resource(&apos;Images/triangle_purple&apos;); -unity-background-scale-mode: scale-to-fit; min-height: 90%; bottom: -80px; max-height: 90%;" />
+            </ui:VisualElement>
             <ui:Label tabindex="-1" text="TRIANGLE DRIPPER" parse-escape-sequences="true" display-tooltip-when-elided="true" class="text" style="height: 18%;" />
         </ui:VisualElement>
         <ui:VisualElement name="rightArea" style="flex-grow: 1; max-width: 55%; min-width: 55%;">
@@ -25,7 +29,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="buttonArea" class="yellow1Bg container" style="flex-grow: 1; max-height: 30%; align-items: center;">
-                <ui:Button text="DRIP" parse-escape-sequences="true" display-tooltip-when-elided="true" name="dripButton" class="button yellow2Bg" style="width: 60%; height: 80%; max-width: 60%; max-height: 80%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; border-top-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; border-bottom-left-radius: 50%; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; -unity-font: resource(&apos;Fonts/IrishGrover-Regular&apos;); -unity-font-definition: resource(&apos;Fonts/IrishGrover-Regular SDF&apos;); font-size: 96px;" />
+                <ui:Button text="DRIP" parse-escape-sequences="true" display-tooltip-when-elided="true" name="dripButton" class="button yellow2Bg" style="width: 45%; height: 75%; max-width: 60%; max-height: 80%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; border-top-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; border-bottom-left-radius: 50%; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; -unity-font: resource(&apos;Fonts/IrishGrover-Regular&apos;); -unity-font-definition: resource(&apos;Fonts/IrishGrover-Regular SDF&apos;); font-size: 96px;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

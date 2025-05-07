@@ -116,10 +116,11 @@
     flex-grow: 1;
     -unity-background-scale-mode: scale-to-fit;
     min-height: auto;
-    bottom: -80px;
+    bottom: 0;
     max-height: none;
     min-width: auto;
     height: 800px;
+    top: 158px;
 }
 
 .face {

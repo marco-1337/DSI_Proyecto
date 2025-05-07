@@ -1,43 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="character" src="project://database/Assets/UIToolkit/character.uxml?fileID=9197481963319205126&amp;guid=ef557994f9beb7547a714126f2134680&amp;type=3#character" />
     <Style src="project://database/Assets/UIToolkit/TriangleDripper.uss?fileID=7433441132597879392&amp;guid=9dec953743cfec347b9732aeebbac81e&amp;type=3#TriangleDripper" />
     <ui:VisualElement name="baseMenu" style="flex-grow: 1; flex-direction: row; display: flex;">
-        <ui:VisualElement name="leftArea" class="pinkBg" style="flex-grow: 1;">
-            <ui:VisualElement name="character" style="flex-grow: 1;">
-                <ui:VisualElement name="bodies" class="emptyContainer position-absolute" style="flex-grow: 1;">
-                    <ui:VisualElement name="body_blue" class="position-absolute body" style="background-image: resource(&apos;Images/triangle_blue&apos;); display: none;" />
-                    <ui:VisualElement name="body_purple" class="position-absolute body" style="background-image: resource(&apos;Images/triangle_purple&apos;); display: flex;" />
-                    <ui:VisualElement name="body_green" class="position-absolute body" style="background-image: resource(&apos;Images/triangle_green&apos;); display: none;" />
-                    <ui:VisualElement name="body_orange" class="position-absolute body" style="background-image: resource(&apos;Images/triangle_orange&apos;); display: none;" />
-                    <ui:VisualElement name="body_red" class="position-absolute body" style="background-image: resource(&apos;Images/triangle_red&apos;); display: none;" />
-                    <ui:VisualElement name="body_yellow" class="position-absolute body" style="background-image: resource(&apos;Images/triangle_yellow&apos;); display: none;" />
-                </ui:VisualElement>
-                <ui:VisualElement name="faces" class="emptyContainer position-absolute" style="flex-grow: 1;">
-                    <ui:VisualElement name="face_neutral" class="position-absolute face" style="background-image: resource(&apos;Images/face_neutral&apos;); display: none;" />
-                    <ui:VisualElement name="face_sad" class="position-absolute face" style="background-image: resource(&apos;Images/face_sad&apos;); display: none;" />
-                    <ui:VisualElement name="face_smile" class="position-absolute face" style="background-image: resource(&apos;Images/face_smile&apos;); height: 173px; display: none;" />
-                    <ui:VisualElement name="face_happy" class="position-absolute face" style="background-image: resource(&apos;Images/face_happy&apos;); height: 173px; display: flex;" />
-                </ui:VisualElement>
-                <ui:VisualElement name="accessories" class="emptyContainer position-absolute" style="flex-grow: 1;">
-                    <ui:VisualElement name="accessory_sunglasses" class="position-absolute accessory" style="display: none; background-image: resource(&apos;Images/accessory_sunglasses&apos;);" />
-                    <ui:VisualElement name="accessory_pixelSunglasses" class="position-absolute accessory" style="display: none; background-image: resource(&apos;Images/accessory_pixelSunglasses&apos;);" />
-                    <ui:VisualElement name="accessory_HPglasses" class="position-absolute accessory" style="display: none; background-image: resource(&apos;Images/accessory_HPGlasses&apos;);" />
-                    <ui:VisualElement name="accessory_aviatorSunglasses" class="position-absolute accessory" style="display: flex; background-image: resource(&apos;Images/accessory_aviatorSunglasses&apos;);" />
-                </ui:VisualElement>
-                <ui:VisualElement name="hats" class="emptyContainer position-absolute" style="flex-grow: 1;">
-                    <ui:VisualElement name="hat_beanie" class="position-absolute hat" style="background-image: resource(&apos;Images/hat_beanie&apos;); display: none; top: 30px;" />
-                    <ui:VisualElement name="hat_propeller" class="position-absolute hat" style="background-image: resource(&apos;Images/hat_propeller&apos;); display: none;" />
-                    <ui:VisualElement name="hat_obey" class="position-absolute hat" style="background-image: resource(&apos;Images/hat_obey&apos;); display: none;" />
-                    <ui:VisualElement name="hat_cowboy" class="position-absolute hat" style="background-image: resource(&apos;Images/hat_cowboy&apos;); display: none; top: 135px;" />
-                    <ui:VisualElement name="hat_birthday" class="position-absolute hat" style="background-image: resource(&apos;Images/hat_birthday&apos;); display: none; top: 30px;" />
-                    <ui:VisualElement name="hat_miku" class="position-absolute hat" style="background-image: resource(&apos;Images/hat_miku&apos;); display: none; top: 350px;" />
-                    <ui:VisualElement name="hat_beret" class="position-absolute hat" style="background-image: resource(&apos;Images/hat_beret&apos;); display: none; top: 140px;" />
-                    <ui:VisualElement name="hat_magic" class="position-absolute hat" style="background-image: resource(&apos;Images/hat_magic&apos;); display: none; top: 90px;" />
-                    <ui:VisualElement name="hat_chef" class="position-absolute hat" style="background-image: resource(&apos;Images/hat_chef&apos;); display: none; top: 35px;" />
-                    <ui:VisualElement name="hat_mexican" class="position-absolute hat" style="background-image: resource(&apos;Images/hat_mexican&apos;); display: none; top: 90px;" />
-                    <ui:VisualElement name="hat_pirate" class="position-absolute hat" style="background-image: resource(&apos;Images/hat_pirate&apos;); display: flex; top: 145px;" />
-                </ui:VisualElement>
-            </ui:VisualElement>
-            <ui:Label tabindex="-1" text="TRIANGLE DRIPPER" parse-escape-sequences="true" display-tooltip-when-elided="true" class="text" style="height: 18%;" />
+        <ui:VisualElement name="leftArea" class="pinkBg" style="flex-grow: 1; flex-direction: column;">
+            <ui:Instance template="character" name="character" class="position-absolute" style="top: 0;" />
+            <ui:Label tabindex="-1" text="TRIANGLE DRIPPER" parse-escape-sequences="true" display-tooltip-when-elided="true" class="text position-absolute" style="height: 18%; bottom: 0;" />
         </ui:VisualElement>
         <ui:VisualElement name="rightArea" style="flex-grow: 1; max-width: 55%; min-width: 55%;">
             <ui:VisualElement name="itemSelector" style="flex-grow: 1; flex-direction: row;">

@@ -1,15 +1,17 @@
 :root {
-    --pink: rgb(255, 207, 207);
+    --pink-1: rgb(255, 207, 207);
+    --pink-2: rgb(255, 89, 112);
     --blue-1: rgb(188, 196, 210);
     --blue-2: rgb(206, 217, 238);
     --blue-3: rgb(237, 243, 255);
     --yellow-1: rgb(253, 232, 188);
     --yellow-2: rgb(242, 207, 132);
     --white: rgb(255, 255, 255);
+    --grey: #f5ebeb;
 }
 
 .pinkBg {
-    background-color: var(--pink);
+    background-color: var(--pink-1);
 }
 
 .blue1Bg {
@@ -67,4 +69,40 @@
 .position-absolute {
     position: absolute;
     width: 100%;
+}
+
+.unity-progress-bar__container {
+    height: 100%;
+    min-height: 100%;
+}
+
+.unity-progress-bar__background {
+    background-color: var(--grey);
+    height: 141px;
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+    border-bottom-left-radius: 35px;
+    overflow: hidden;
+}
+
+.unity-progress-bar__progress {
+    background-color: var(--pink-2);
+    margin: 0px;
+}
+
+.unity-progress-bar__title {
+    -unity-font-definition: resource('Fonts/KeaniaOne-Regular SDF');
+	font-size: 72px;
+	-unity-text-align: middle-center;
+	color:  rgb(0, 0, 0);
+	margin: 0px;
 }

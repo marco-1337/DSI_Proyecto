@@ -1,11 +1,23 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UIToolkit/TriangleDripper.uss?fileID=7433441132597879392&amp;guid=9dec953743cfec347b9732aeebbac81e&amp;type=3#TriangleDripper" />
-    <ui:VisualElement name="baseMenu" style="flex-grow: 1; flex-direction: row; display: none;">
+    <ui:VisualElement name="baseMenu" style="flex-grow: 1; flex-direction: row; display: flex;">
         <ui:VisualElement name="leftArea" class="pinkBg" style="flex-grow: 1;">
             <ui:VisualElement name="character" style="flex-grow: 1;">
-                <ui:VisualElement name="body" class="position-absolute" style="flex-grow: 1; background-image: resource(&apos;Images/triangle_purple&apos;); -unity-background-scale-mode: scale-to-fit; min-height: auto; bottom: -80px; max-height: none; min-width: auto; height: 800px;" />
-                <ui:VisualElement name="face" class="position-absolute" style="flex-grow: 1; background-image: resource(&apos;Images/face1&apos;); -unity-background-scale-mode: scale-to-fit; min-height: auto; height: 150px; top: 425px;" />
-                <ui:VisualElement name="accessory" class="position-absolute" style="flex-grow: 1; background-image: resource(&apos;Images/sunglasses&apos;); -unity-background-scale-mode: scale-to-fit; height: 250px; top: 350px;" />
+                <ui:VisualElement name="bodies" class="emptyContainer position-absolute" style="flex-grow: 1;">
+                    <ui:VisualElement name="body_blue" class="position-absolute body" style="background-image: resource(&apos;Images/triangle_blue&apos;); display: none;" />
+                    <ui:VisualElement name="body_purple" class="position-absolute body" style="background-image: resource(&apos;Images/triangle_purple&apos;); display: flex;" />
+                    <ui:VisualElement name="body_green" class="position-absolute body" style="background-image: resource(&apos;Images/triangle_green&apos;); display: none;" />
+                    <ui:VisualElement name="body_orange" class="position-absolute body" style="background-image: resource(&apos;Images/triangle_orange&apos;); display: none;" />
+                    <ui:VisualElement name="body_red" class="position-absolute body" style="background-image: resource(&apos;Images/triangle_red&apos;); display: none;" />
+                    <ui:VisualElement name="body_yellow" class="position-absolute body" style="background-image: resource(&apos;Images/triangle_yellow&apos;); display: none;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="faces" class="emptyContainer position-absolute" style="flex-grow: 1;">
+                    <ui:VisualElement name="face_neutral" class="position-absolute face" style="background-image: resource(&apos;Images/face_neutral&apos;); display: none;" />
+                    <ui:VisualElement name="face_sad" class="position-absolute face" style="background-image: resource(&apos;Images/face_sad&apos;); display: none;" />
+                    <ui:VisualElement name="face_smile" class="position-absolute face" style="background-image: resource(&apos;Images/face_smile&apos;); height: 173px; display: none;" />
+                    <ui:VisualElement name="face_happy" class="position-absolute face" style="background-image: resource(&apos;Images/face_happy&apos;); height: 173px; display: flex;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="accessory" class="position-absolute" style="flex-grow: 1; background-image: resource(&apos;Images/sunglasses&apos;); -unity-background-scale-mode: scale-to-fit; height: 250px; top: 350px; display: none;" />
                 <ui:VisualElement name="hat" class="position-absolute" style="flex-grow: 1; height: 375px; background-image: resource(&apos;Images/Obey_cap&apos;); -unity-background-scale-mode: scale-to-fit; top: 101px;" />
             </ui:VisualElement>
             <ui:Label tabindex="-1" text="TRIANGLE DRIPPER" parse-escape-sequences="true" display-tooltip-when-elided="true" class="text" style="height: 18%;" />
@@ -34,7 +46,7 @@
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="baseResult" class="pinkBg" style="flex-grow: 1; display: flex;">
+    <ui:VisualElement name="baseResult" class="pinkBg" style="flex-grow: 1; display: none;">
         <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="returnButton" style="position: absolute; left: 75px; top: 75px; background-color: rgba(255, 255, 255, 0); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; width: 150px; height: 150px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; background-image: resource(&apos;Images/arrow_left&apos;); -unity-background-scale-mode: scale-to-fit;" />
         <ui:VisualElement name="character" class="position-absolute" style="flex-grow: 1; height: 100%;" />
         <ui:VisualElement name="circle" style="flex-grow: 1; position: absolute; height: 80%; width: 100%; background-image: resource(&apos;Images/circle&apos;); -unity-background-scale-mode: scale-to-fit; top: 5%;" />

@@ -133,7 +133,10 @@
 .hat {
 }
 
-.glasses {
+.accessory {
+    flex-grow: 1;
+    background-image: resource('Images/sunglasses');
+    -unity-background-scale-mode: scale-to-fit;
+    height: 250px;
+    top: 350px;
 }
-
-

@@ -17,7 +17,10 @@
                     <ui:VisualElement name="face_smile" class="position-absolute face" style="background-image: resource(&apos;Images/face_smile&apos;); height: 173px; display: none;" />
                     <ui:VisualElement name="face_happy" class="position-absolute face" style="background-image: resource(&apos;Images/face_happy&apos;); height: 173px; display: flex;" />
                 </ui:VisualElement>
-                <ui:VisualElement name="accessory" class="position-absolute" style="flex-grow: 1; background-image: resource(&apos;Images/sunglasses&apos;); -unity-background-scale-mode: scale-to-fit; height: 250px; top: 350px; display: none;" />
+                <ui:VisualElement name="accessories" class="emptyContainer position-absolute" style="flex-grow: 1;">
+                    <ui:VisualElement name="accessory_sunglasses" class="position-absolute accessory" style="display: none;" />
+                    <ui:VisualElement name="accessory_pixelSunglasses" class="position-absolute accessory" style="display: flex; background-image: resource(&apos;Images/accessory_pixelSunglasses&apos;);" />
+                </ui:VisualElement>
                 <ui:VisualElement name="hat" class="position-absolute" style="flex-grow: 1; height: 375px; background-image: resource(&apos;Images/Obey_cap&apos;); -unity-background-scale-mode: scale-to-fit; top: 101px;" />
             </ui:VisualElement>
             <ui:Label tabindex="-1" text="TRIANGLE DRIPPER" parse-escape-sequences="true" display-tooltip-when-elided="true" class="text" style="height: 18%;" />

@@ -131,6 +131,10 @@
 }
 
 .hat {
+    flex-grow: 1;
+    height: 375px;
+    -unity-background-scale-mode: scale-to-fit;
+    top: 120px;
 }
 
 .accessory {

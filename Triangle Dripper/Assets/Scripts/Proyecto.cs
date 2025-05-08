@@ -60,16 +60,39 @@ public class Proyecto : MonoBehaviour
 
         menuRoot.Query("items_body")
             .Descendents<VisualElement>()
-            .ForEach(elem => elem.RegisterCallback<ClickEvent>(CambioCuerpo));
+            .ForEach(
+                elem => {
+                    elem.RegisterCallback<ClickEvent>(CambioCuerpo);
+                    elem.AddManipulator(new MenuHoverManipulator());
+                }
+            );
+
         menuRoot.Query("items_hat")
             .Descendents<VisualElement>()
-            .ForEach(elem => elem.RegisterCallback<ClickEvent>(CambioGorro));
+            .ForEach(
+                elem => {
+                    elem.RegisterCallback<ClickEvent>(CambioGorro);
+                    elem.AddManipulator(new MenuHoverManipulator());
+                }
+            );
+
         menuRoot.Query("items_accessory")
             .Descendents<VisualElement>()
-            .ForEach(elem => elem.RegisterCallback<ClickEvent>(CambioAccesorio));
+            .ForEach(
+                elem => {
+                    elem.RegisterCallback<ClickEvent>(CambioAccesorio);
+                    elem.AddManipulator(new MenuHoverManipulator());
+                }
+            );
+
         menuRoot.Query("items_face")
             .Descendents<VisualElement>()
-            .ForEach(elem => elem.RegisterCallback<ClickEvent>(CambioCara));
+            .ForEach(
+                elem => {
+                    elem.RegisterCallback<ClickEvent>(CambioCara);
+                    elem.AddManipulator(new MenuHoverManipulator());
+                }
+            );
 
         _myTriangleData = BaseDatos.getData();
 

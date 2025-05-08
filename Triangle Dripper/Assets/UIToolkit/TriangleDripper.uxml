@@ -9,20 +9,30 @@
         <ui:VisualElement name="rightArea" style="flex-grow: 1; max-width: 55%; min-width: 55%;">
             <ui:VisualElement name="itemSelector" style="flex-grow: 1; flex-direction: row;">
                 <ui:VisualElement name="tabs" style="flex-grow: 1; max-width: 18%; min-width: 18%;">
-                    <ui:VisualElement class="blue2Bg" style="flex-grow: 1;" />
-                    <ui:VisualElement class="blue2Bg" style="flex-grow: 1;" />
-                    <ui:VisualElement class="blue2Bg" style="flex-grow: 1;" />
-                    <ui:VisualElement class="blue2Bg" style="flex-grow: 1;" />
+                    <ui:VisualElement name="tab_body" class="blue2Bg tab" style="flex-grow: 1;">
+                        <ui:VisualElement style="flex-grow: 1; background-image: resource(&apos;Images/tab_body&apos;); -unity-background-scale-mode: scale-to-fit;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="tab_face" class="blue2Bg tab" style="flex-grow: 1;">
+                        <ui:VisualElement style="flex-grow: 1; -unity-background-scale-mode: scale-to-fit; background-image: resource(&apos;Images/tab_face&apos;);" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="tab_hat" class="blue2Bg tab" style="flex-grow: 1;">
+                        <ui:VisualElement style="flex-grow: 1; -unity-background-scale-mode: scale-to-fit; background-image: resource(&apos;Images/tab_hat&apos;);" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="tab_accessory" class="blue2Bg tab" style="flex-grow: 1;">
+                        <ui:VisualElement style="flex-grow: 1; -unity-background-scale-mode: scale-to-fit; background-image: resource(&apos;Images/tab_accessory&apos;);" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="items" class="blue1Bg container" style="flex-grow: 1; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px; flex-wrap: wrap;">
-                    <ui:VisualElement class="item" style="flex-grow: 1;" />
-                    <ui:VisualElement class="item" style="flex-grow: 1;" />
-                    <ui:VisualElement class="item" style="flex-grow: 1;" />
-                    <ui:VisualElement class="item" style="flex-grow: 1;" />
-                    <ui:VisualElement class="item" style="flex-grow: 1;" />
-                    <ui:VisualElement class="item" style="flex-grow: 1;" />
-                    <ui:VisualElement class="item" style="flex-grow: 1;" />
-                    <ui:VisualElement class="item" style="flex-grow: 1;" />
+                <ui:VisualElement style="flex-grow: 1;">
+                    <ui:VisualElement name="items_body" class="blue1Bg container" style="flex-grow: 1; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px; flex-wrap: wrap;">
+                        <ui:VisualElement class="item" style="flex-grow: 1;" />
+                        <ui:VisualElement class="item" style="flex-grow: 1;" />
+                        <ui:VisualElement class="item" style="flex-grow: 1;" />
+                        <ui:VisualElement class="item" style="flex-grow: 1;" />
+                        <ui:VisualElement class="item" style="flex-grow: 1;" />
+                        <ui:VisualElement class="item" style="flex-grow: 1;" />
+                        <ui:VisualElement class="item" style="flex-grow: 1;" />
+                        <ui:VisualElement class="item" style="flex-grow: 1;" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="buttonArea" class="yellow1Bg container" style="flex-grow: 1; max-height: 30%; align-items: center;">

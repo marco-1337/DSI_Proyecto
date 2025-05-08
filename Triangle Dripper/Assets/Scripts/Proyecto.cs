@@ -80,21 +80,14 @@ public class Proyecto : MonoBehaviour
         _accessoriesMenuRoot.Children().ToList().ForEach(elem => LowlightSelected(elem));
         _faceMenuRoot.Children().ToList().ForEach       (elem => LowlightSelected(elem));
 
-        Debug.Log(_myTriangleData.Cuerpo);
-        Debug.Log(_bodyRoot);
-        Debug.Log(_bodyRoot.Q<VisualElement>(_myTriangleData.Cuerpo));
-
-
         _bodyRoot.Q<VisualElement>(_myTriangleData.Cuerpo).style.display = DisplayStyle.Flex;
 
         VisualElement m = _bodyMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Cuerpo);
         HighlightSelected(m);
 
         if (_myTriangleData.Gorro.Length > 0) {
-            Debug.Log(_hatRoot.Q<VisualElement>(_myTriangleData.Gorro));
             _hatRoot.Q<VisualElement>(_myTriangleData.Gorro).style.display = DisplayStyle.Flex;
             m = _hatMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Gorro);
-
             HighlightSelected(m);
         }
 
@@ -105,6 +98,7 @@ public class Proyecto : MonoBehaviour
         }
 
         if (_myTriangleData.Cara.Length > 0) {
+            Debug.Log(_myTriangleData.Cara);
             _faceRoot.Q<VisualElement>(_myTriangleData.Cara).style.display = DisplayStyle.Flex;
             m = _faceMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Cara);
             HighlightSelected(m);
@@ -116,28 +110,30 @@ public class Proyecto : MonoBehaviour
 
     void CambioCuerpo(ClickEvent e) {
         string n = (e.target as VisualElement).name;
-        _myTriangleData.Cuerpo = n.Substring(n.IndexOf("menu_"));
+        _myTriangleData.Cuerpo = n.Substring(5);
 
         GuardarTriangulo();
     }
 
     void CambioGorro(ClickEvent e) {
         string n = (e.target as VisualElement).name;
-        _myTriangleData.Gorro = n.Substring(n.IndexOf("menu_"));
+        _myTriangleData.Gorro = n.Substring(5);
 
         GuardarTriangulo();
     }
 
     void CambioAccesorio(ClickEvent e) {
         string n = (e.target as VisualElement).name;
-        _myTriangleData.Accesorio = n.Substring(n.IndexOf("menu_"));
+        _myTriangleData.Accesorio = n.Substring(5);
 
         GuardarTriangulo();
     }
 
     void CambioCara(ClickEvent e) {
         string n = (e.target as VisualElement).name;
-        _myTriangleData.Cara = n.Substring(n.IndexOf("menu_"));
+        _myTriangleData.Cara = n.Substring(5);
+
+        Debug.Log(_myTriangleData.Cara);
 
         GuardarTriangulo();
     }

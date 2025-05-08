@@ -93,7 +93,5 @@ public class Triangulo
         _cara = cara;
         _accesorio = accesorio;
         _gorro = gorro;
-
-        Debug.Log("" + _cuerpo + " " + _cara + " " + _accesorio + " " + _gorro);
     } 
 }

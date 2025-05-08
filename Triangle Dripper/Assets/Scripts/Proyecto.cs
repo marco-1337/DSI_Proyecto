@@ -33,16 +33,16 @@ public class Proyecto : MonoBehaviour
 
         VisualElement triangleElementsRoot = baseMenu.Q<VisualElement>("leftArea").Q<VisualElement>("character");
 
-        _bodyRoot = root.Q<VisualElement>("CardsSection");
-        _hatRoot = root.Q<VisualElement>("BotonCrear");
-        _accessoriesRoot = root.Q<VisualElement>("BotonGuardar");
-        _faceRoot = root.Q<Toggle>("ToggleModificar");
+        _bodyRoot = triangleElementsRoot.Q<VisualElement>("bodies");
+        _hatRoot = triangleElementsRoot.Q<VisualElement>("hats");
+        _accessoriesRoot = triangleElementsRoot.Q<VisualElement>("accessories");
+        _faceRoot = triangleElementsRoot.Q<VisualElement>("faces");
     
         _dripButton = rightArea.Q<VisualElement>("buttonArea").Q<VisualElement>("dripButton");
 
         // To do: callback de dripar
 
-        VisualElement menuRoot = rightArea.Q<VisualElement>("itemSelector").Q<VisualElement>("items_menus");
+        VisualElement menuRoot = rightArea.Q<VisualElement>("itemSelector").Q<VisualElement>("items");
 
         _bodyMenuRoot          = menuRoot.Q<VisualElement>("items_body");
         _hatMenuRoot           = menuRoot.Q<VisualElement>("items_hat");
@@ -52,28 +52,16 @@ public class Proyecto : MonoBehaviour
         menuRoot.Query("items_body")
             .Descendents<VisualElement>()
             .ForEach(elem => elem.RegisterCallback<ClickEvent>(CambioCuerpo));
-
         menuRoot.Query("items_hat")
             .Descendents<VisualElement>()
             .ForEach(elem => elem.RegisterCallback<ClickEvent>(CambioGorro));
-
         menuRoot.Query("items_accessory")
             .Descendents<VisualElement>()
             .ForEach(elem => elem.RegisterCallback<ClickEvent>(CambioAccesorio));
-
         menuRoot.Query("items_face")
             .Descendents<VisualElement>()
             .ForEach(elem => elem.RegisterCallback<ClickEvent>(CambioCara));
-    /*
-        contenerdorDerecha.RegisterCallback<ClickEvent>(SeleccionTarjeta);
-        botonCrear.RegisterCallback<ClickEvent>(NuevaTarjeta);
-        botonGuardar.RegisterCallback<ClickEvent>(GuardarIndividuos);
-        inputNombre.RegisterCallback<ChangeEvent<string>>(CambioNombre);
-        inputApellido.RegisterCallback<ChangeEvent<string>>(CambioApellido);
-        root.Query("MenuImages")
-            .Descendents<VisualElement>()
-            .ForEach(elem => elem.RegisterCallback<ClickEvent>(CambioImagen));
-    */
+
         _myTriangleData = BaseDatos.getData();
 
         UpdateUI();
@@ -92,25 +80,33 @@ public class Proyecto : MonoBehaviour
         _accessoriesMenuRoot.Children().ToList().ForEach(elem => LowlightSelected(elem));
         _faceMenuRoot.Children().ToList().ForEach       (elem => LowlightSelected(elem));
 
+        Debug.Log(_myTriangleData.Cuerpo);
+        Debug.Log(_bodyRoot);
+        Debug.Log(_bodyRoot.Q<VisualElement>(_myTriangleData.Cuerpo));
+
+
         _bodyRoot.Q<VisualElement>(_myTriangleData.Cuerpo).style.display = DisplayStyle.Flex;
+
         VisualElement m = _bodyMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Cuerpo);
         HighlightSelected(m);
 
         if (_myTriangleData.Gorro.Length > 0) {
+            Debug.Log(_hatRoot.Q<VisualElement>(_myTriangleData.Gorro));
             _hatRoot.Q<VisualElement>(_myTriangleData.Gorro).style.display = DisplayStyle.Flex;
-            m = _bodyMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Gorro);
+            m = _hatMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Gorro);
+
             HighlightSelected(m);
         }
 
         if (_myTriangleData.Accesorio.Length > 0) {
             _accessoriesRoot.Q<VisualElement>(_myTriangleData.Accesorio).style.display = DisplayStyle.Flex;
-            m = _bodyMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Accesorio);
+            m = _accessoriesMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Accesorio);
             HighlightSelected(m);
         }
 
         if (_myTriangleData.Cara.Length > 0) {
             _faceRoot.Q<VisualElement>(_myTriangleData.Cara).style.display = DisplayStyle.Flex;
-            m = _bodyMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Cara);
+            m = _faceMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Cara);
             HighlightSelected(m);
         }
 
@@ -120,28 +116,28 @@ public class Proyecto : MonoBehaviour
 
     void CambioCuerpo(ClickEvent e) {
         string n = (e.target as VisualElement).name;
-        _myTriangleData.Cuerpo = n[n.IndexOf("menu_" + 1)..];
+        _myTriangleData.Cuerpo = n.Substring(n.IndexOf("menu_"));
 
         GuardarTriangulo();
     }
 
     void CambioGorro(ClickEvent e) {
         string n = (e.target as VisualElement).name;
-        _myTriangleData.Gorro = n[n.IndexOf("menu_" + 1)..];
+        _myTriangleData.Gorro = n.Substring(n.IndexOf("menu_"));
 
         GuardarTriangulo();
     }
 
     void CambioAccesorio(ClickEvent e) {
         string n = (e.target as VisualElement).name;
-        _myTriangleData.Accesorio = n[n.IndexOf("menu_" + 1)..];
+        _myTriangleData.Accesorio = n.Substring(n.IndexOf("menu_"));
 
         GuardarTriangulo();
     }
 
     void CambioCara(ClickEvent e) {
         string n = (e.target as VisualElement).name;
-        _myTriangleData.Cara = n[n.IndexOf("menu_" + 1)..];
+        _myTriangleData.Cara = n.Substring(n.IndexOf("menu_"));
 
         GuardarTriangulo();
     }

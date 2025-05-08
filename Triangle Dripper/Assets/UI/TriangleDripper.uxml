@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Template name="character" src="project://database/Assets/UIToolkit/character.uxml?fileID=9197481963319205126&amp;guid=ef557994f9beb7547a714126f2134680&amp;type=3#character" />
-    <Style src="project://database/Assets/UIToolkit/TriangleDripper.uss?fileID=7433441132597879392&amp;guid=9dec953743cfec347b9732aeebbac81e&amp;type=3#TriangleDripper" />
-    <ui:VisualElement name="baseMenu" style="flex-grow: 1; flex-direction: row; display: none;">
+    <ui:Template name="character" src="project://database/Assets/UI/character.uxml?fileID=9197481963319205126&amp;guid=ef557994f9beb7547a714126f2134680&amp;type=3#character" />
+    <Style src="project://database/Assets/UI/TriangleDripper.uss?fileID=7433441132597879392&amp;guid=9dec953743cfec347b9732aeebbac81e&amp;type=3#TriangleDripper" />
+    <ui:VisualElement name="baseMenu" style="flex-grow: 1; flex-direction: row; display: flex;">
         <ui:VisualElement name="leftArea" class="pinkBg" style="flex-grow: 1; flex-direction: column;">
             <ui:Instance template="character" name="character" class="position-absolute" style="top: 0;" />
             <ui:Label tabindex="-1" text="TRIANGLE DRIPPER" parse-escape-sequences="true" display-tooltip-when-elided="true" class="text position-absolute" style="height: 18%; bottom: 0;" />
@@ -23,38 +23,38 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="items" style="flex-grow: 1;">
-                    <ui:VisualElement name="items_body" class="blue1Bg container" style="flex-grow: 1; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px; flex-wrap: wrap; display: none;">
-                        <ui:VisualElement name="menu_body_blue" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/triangle_blue&apos;);" />
-                        <ui:VisualElement name="menu_body_purple" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/triangle_purple&apos;);" />
-                        <ui:VisualElement name="menu_body_green" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/triangle_green&apos;);" />
-                        <ui:VisualElement name="menu_body_orange" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/triangle_orange&apos;);" />
-                        <ui:VisualElement name="menu_body_red" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/triangle_red&apos;);" />
-                        <ui:VisualElement name="menu_body_yellow" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/triangle_yellow&apos;);" />
+                    <ui:VisualElement name="items_body" class="blue1Bg container" style="flex-grow: 1; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px; flex-wrap: wrap; display: flex;">
+                        <DripControl name="menu_body_blue" class="item" style="background-image: resource(&apos;Images/triangle_blue&apos;);" />
+                        <DripControl name="menu_body_purple" class="item" style="background-image: resource(&apos;Images/triangle_purple&apos;);" />
+                        <DripControl name="menu_body_green" class="item" style="background-image: resource(&apos;Images/triangle_green&apos;);" />
+                        <DripControl name="menu_body_orange" class="item" style="background-image: resource(&apos;Images/triangle_orange&apos;);" />
+                        <DripControl name="menu_body_red" class="item" style="background-image: resource(&apos;Images/triangle_red&apos;);" />
+                        <DripControl name="menu_body_yellow" class="item" style="background-image: resource(&apos;Images/triangle_yellow&apos;);" />
                     </ui:VisualElement>
                     <ui:VisualElement name="items_face" class="blue1Bg container" style="flex-grow: 1; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px; flex-wrap: wrap; display: none;">
-                        <ui:VisualElement name="menu_face_neutral" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/face_neutral&apos;);" />
-                        <ui:VisualElement name="menu_face_sad" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/face_sad&apos;);" />
-                        <ui:VisualElement name="menu_face_smile" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/face_smile&apos;);" />
-                        <ui:VisualElement name="menu_face_happy" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/face_happy&apos;);" />
+                        <DripControl name="menu_face_neutral" class="item" style="background-image: resource(&apos;Images/face_neutral&apos;);" />
+                        <DripControl name="menu_face_sad" class="item" style="background-image: resource(&apos;Images/face_sad&apos;);" />
+                        <DripControl name="menu_face_smile" class="item" style="background-image: resource(&apos;Images/face_smile&apos;);" />
+                        <DripControl name="menu_face_happy" class="item" style="background-image: resource(&apos;Images/face_happy&apos;);" />
                     </ui:VisualElement>
                     <ui:VisualElement name="items_hat" class="blue1Bg container" style="flex-grow: 1; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px; flex-wrap: wrap; display: none;">
-                        <ui:VisualElement name="menu_hat_beanie" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/hat_beanie&apos;);" />
-                        <ui:VisualElement name="menu_hat_propeller" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/hat_propeller&apos;);" />
-                        <ui:VisualElement name="menu_hat_obey" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/hat_obey&apos;);" />
-                        <ui:VisualElement name="menu_hat_cowboy" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/hat_cowboy&apos;);" />
-                        <ui:VisualElement name="menu_hat_birthday" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/hat_birthday&apos;);" />
-                        <ui:VisualElement name="menu_hat_miku" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/hat_miku&apos;);" />
-                        <ui:VisualElement name="menu_hat_beret" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/hat_beret&apos;);" />
-                        <ui:VisualElement name="menu_hat_magic" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/hat_magic&apos;);" />
-                        <ui:VisualElement name="menu_hat_chef" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/hat_chef&apos;);" />
-                        <ui:VisualElement name="menu_hat_mexican" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/hat_mexican&apos;);" />
-                        <ui:VisualElement name="menu_hat_pirate" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/hat_pirate&apos;);" />
+                        <DripControl name="menu_hat_beanie" class="item" style="background-image: resource(&apos;Images/hat_beanie&apos;);" />
+                        <DripControl name="menu_hat_propeller" class="item" style="background-image: resource(&apos;Images/hat_propeller&apos;);" />
+                        <DripControl name="menu_hat_obey" class="item" style="background-image: resource(&apos;Images/hat_obey&apos;);" />
+                        <DripControl name="menu_hat_cowboy" class="item" style="background-image: resource(&apos;Images/hat_cowboy&apos;);" />
+                        <DripControl name="menu_hat_birthday" class="item" style="background-image: resource(&apos;Images/hat_birthday&apos;);" />
+                        <DripControl name="menu_hat_miku" class="item" style="background-image: resource(&apos;Images/hat_miku&apos;);" />
+                        <DripControl name="menu_hat_beret" class="item" style="background-image: resource(&apos;Images/hat_beret&apos;);" />
+                        <DripControl name="menu_hat_magic" class="item" style="background-image: resource(&apos;Images/hat_magic&apos;);" />
+                        <DripControl name="menu_hat_chef" class="item" style="background-image: resource(&apos;Images/hat_chef&apos;);" />
+                        <DripControl name="menu_hat_mexican" class="item" style="background-image: resource(&apos;Images/hat_mexican&apos;);" />
+                        <DripControl name="menu_hat_pirate" class="item" style="background-image: resource(&apos;Images/hat_pirate&apos;);" />
                     </ui:VisualElement>
-                    <ui:VisualElement name="items_accessory" class="blue1Bg container" style="flex-grow: 1; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px; flex-wrap: wrap; display: flex;">
-                        <ui:VisualElement name="menu_accessory_sunglasses" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/accessory_sunglasses&apos;);" />
-                        <ui:VisualElement name="menu_accessory_pixelSunglasses" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/accessory_pixelSunglasses&apos;);" />
-                        <ui:VisualElement name="menu_accessory_HPglasses" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/accessory_HPGlasses&apos;);" />
-                        <ui:VisualElement name="menu_accessory_aviatorSunglasses" class="item" style="flex-grow: 1; background-image: resource(&apos;Images/accessory_aviatorSunglasses&apos;);" />
+                    <ui:VisualElement name="items_accessory" class="blue1Bg container" style="flex-grow: 1; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px; flex-wrap: wrap; display: none;">
+                        <DripControl name="menu_accessory_sunglasses" class="item" style="background-image: resource(&apos;Images/accessory_sunglasses&apos;);" />
+                        <DripControl name="menu_accessory_pixelSunglasses" class="item" style="background-image: resource(&apos;Images/accessory_pixelSunglasses&apos;);" />
+                        <DripControl name="menu_accessory_HPglasses" class="item" style="background-image: resource(&apos;Images/accessory_HPGlasses&apos;);" />
+                        <DripControl name="menu_accessory_aviatorSunglasses" class="item" style="background-image: resource(&apos;Images/accessory_aviatorSunglasses&apos;);" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
@@ -63,7 +63,7 @@
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="baseResult" class="pinkBg" style="flex-grow: 1; display: flex;">
+    <ui:VisualElement name="baseResult" class="pinkBg" style="flex-grow: 1; display: none;">
         <ui:VisualElement name="circle" style="flex-grow: 1; position: absolute; height: 80%; width: 100%; background-image: resource(&apos;Images/circle&apos;); -unity-background-scale-mode: scale-to-fit; top: 5%;" />
         <ui:Instance template="character" name="character" />
         <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="returnButton" class="button" style="position: absolute; left: 75px; top: 75px; background-color: rgba(255, 255, 255, 0); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; width: 150px; height: 150px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; background-image: resource(&apos;Images/arrow_left&apos;); -unity-background-scale-mode: scale-to-fit;" />

@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="character" src="project://database/Assets/UIToolkit/character.uxml?fileID=9197481963319205126&amp;guid=ef557994f9beb7547a714126f2134680&amp;type=3#character" />
     <Style src="project://database/Assets/UIToolkit/TriangleDripper.uss?fileID=7433441132597879392&amp;guid=9dec953743cfec347b9732aeebbac81e&amp;type=3#TriangleDripper" />
-    <ui:VisualElement name="baseMenu" style="flex-grow: 1; flex-direction: row; display: none;">
+    <ui:VisualElement name="baseMenu" style="flex-grow: 1; flex-direction: row; display: flex;">
         <ui:VisualElement name="leftArea" class="pinkBg" style="flex-grow: 1; flex-direction: column;">
             <ui:Instance template="character" name="character" class="position-absolute" style="top: 0;" />
             <ui:Label tabindex="-1" text="TRIANGLE DRIPPER" parse-escape-sequences="true" display-tooltip-when-elided="true" class="text position-absolute" style="height: 18%; bottom: 0;" />
@@ -30,7 +30,7 @@
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="baseResult" class="pinkBg" style="flex-grow: 1; display: flex;">
+    <ui:VisualElement name="baseResult" class="pinkBg" style="flex-grow: 1; display: none;">
         <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="returnButton" style="position: absolute; left: 75px; top: 75px; background-color: rgba(255, 255, 255, 0); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; width: 150px; height: 150px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; background-image: resource(&apos;Images/arrow_left&apos;); -unity-background-scale-mode: scale-to-fit;" />
         <ui:VisualElement name="circle" style="flex-grow: 1; position: absolute; height: 80%; width: 100%; background-image: resource(&apos;Images/circle&apos;); -unity-background-scale-mode: scale-to-fit; top: 5%;" />
         <ui:Instance template="character" name="character" />

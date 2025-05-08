@@ -17,30 +17,39 @@ public class Proyecto : MonoBehaviour
     VisualElement _accessoriesRoot;
     VisualElement _faceRoot;
 
-    VisualElement _dripButton;
+    VisualElement _resultBodyRoot;
+    VisualElement _resultHatRoot;
+    VisualElement _resultAccessoriesRoot;
+    VisualElement _resultFaceRoot;
 
-    
     VisualElement _bodyMenuRoot;
     VisualElement _hatMenuRoot;
     VisualElement _accessoriesMenuRoot;
     VisualElement _faceMenuRoot;
 
+    ProgressBar _dripBar;
+
     private void OnEnable() 
     {
         VisualElement root      = GetComponent<UIDocument>().rootVisualElement;
         VisualElement baseMenu  = root.Q<VisualElement>("baseMenu");
+        VisualElement baseResult = root.Q("baseResult");
         VisualElement rightArea = baseMenu.Q<VisualElement>("rightArea");
 
         VisualElement triangleElementsRoot = baseMenu.Q<VisualElement>("leftArea").Q<VisualElement>("character");
+        VisualElement resultTriangleElementsRoot = baseResult.Q<VisualElement>("character");
 
         _bodyRoot = triangleElementsRoot.Q<VisualElement>("bodies");
         _hatRoot = triangleElementsRoot.Q<VisualElement>("hats");
         _accessoriesRoot = triangleElementsRoot.Q<VisualElement>("accessories");
         _faceRoot = triangleElementsRoot.Q<VisualElement>("faces");
-    
-        _dripButton = rightArea.Q<VisualElement>("buttonArea").Q<VisualElement>("dripButton");
 
-        // To do: callback de dripar
+        _resultBodyRoot = resultTriangleElementsRoot.Q<VisualElement>("bodies");
+        _resultHatRoot = resultTriangleElementsRoot.Q<VisualElement>("hats");
+        _resultAccessoriesRoot = resultTriangleElementsRoot.Q<VisualElement>("accessories");
+        _resultFaceRoot = resultTriangleElementsRoot.Q<VisualElement>("faces");
+
+        _dripBar = baseResult.Q<VisualElement>("level").Q<ProgressBar>("dripBar");
 
         VisualElement menuRoot = rightArea.Q<VisualElement>("itemSelector").Q<VisualElement>("items");
 
@@ -74,6 +83,10 @@ public class Proyecto : MonoBehaviour
         _hatRoot.       Children().ToList().ForEach(elem => elem.style.display = DisplayStyle.None);
         _accessoriesRoot.Children().ToList().ForEach(elem => elem.style.display = DisplayStyle.None);
         _faceRoot.      Children().ToList().ForEach(elem => elem.style.display = DisplayStyle.None);
+        _resultBodyRoot.      Children().ToList().ForEach(elem => elem.style.display = DisplayStyle.None);
+        _resultHatRoot.       Children().ToList().ForEach(elem => elem.style.display = DisplayStyle.None);
+        _resultAccessoriesRoot.Children().ToList().ForEach(elem => elem.style.display = DisplayStyle.None);
+        _resultFaceRoot.      Children().ToList().ForEach(elem => elem.style.display = DisplayStyle.None);
 
         _bodyMenuRoot.Children().ToList().ForEach       (elem => LowlightSelected(elem));
         _hatMenuRoot.Children().ToList().ForEach        (elem => LowlightSelected(elem));
@@ -83,32 +96,43 @@ public class Proyecto : MonoBehaviour
         _myTriangleData.DripScore = 0;
 
         _bodyRoot.Q<VisualElement>(_myTriangleData.Cuerpo).style.display = DisplayStyle.Flex;
+        _resultBodyRoot.Q<VisualElement>(_myTriangleData.Cuerpo).style.display = DisplayStyle.Flex;
 
         VisualElement m = _bodyMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Cuerpo);
         HighlightSelected(m);
+        _myTriangleData.DripScore += _bodyMenuRoot.Q<DripControl>("menu_" + _myTriangleData.Cuerpo).drip;
 
         if (_myTriangleData.Gorro.Length > 0) {
             _hatRoot.Q<VisualElement>(_myTriangleData.Gorro).style.display = DisplayStyle.Flex;
+            _resultHatRoot.Q<VisualElement>(_myTriangleData.Gorro).style.display = DisplayStyle.Flex;
+
             m = _hatMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Gorro);
             HighlightSelected(m);
-            //_myTriangleData.DripScore += _hatMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Gorro).userData;
+            _myTriangleData.DripScore += _hatMenuRoot.Q<DripControl>("menu_" + _myTriangleData.Gorro).drip;
         }
 
         if (_myTriangleData.Accesorio.Length > 0) {
             _accessoriesRoot.Q<VisualElement>(_myTriangleData.Accesorio).style.display = DisplayStyle.Flex;
+            _resultAccessoriesRoot.Q<VisualElement>(_myTriangleData.Accesorio).style.display = DisplayStyle.Flex;
+
             m = _accessoriesMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Accesorio);
             HighlightSelected(m);
+
+            _myTriangleData.DripScore += _accessoriesMenuRoot.Q<DripControl>("menu_" + _myTriangleData.Accesorio).drip;
         }
 
         if (_myTriangleData.Cara.Length > 0) {
-            Debug.Log(_myTriangleData.Cara);
             _faceRoot.Q<VisualElement>(_myTriangleData.Cara).style.display = DisplayStyle.Flex;
+            _resultFaceRoot.Q<VisualElement>(_myTriangleData.Cara).style.display = DisplayStyle.Flex;
+        
             m = _faceMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Cara);
             HighlightSelected(m);
+
+            _myTriangleData.DripScore += _faceMenuRoot.Q<DripControl>("menu_" + _myTriangleData.Cara).drip;
         }
 
-
-        // To do: falta sumar el score del drip
+        Debug.Log(_myTriangleData.DripScore);
+        _dripBar.value = _myTriangleData.DripScore;
     }
 
     void CambioCuerpo(ClickEvent e) {
@@ -135,8 +159,6 @@ public class Proyecto : MonoBehaviour
     void CambioCara(ClickEvent e) {
         string n = (e.target as VisualElement).name;
         _myTriangleData.Cara = n.Substring(5);
-
-        Debug.Log(_myTriangleData.Cara);
 
         GuardarTriangulo();
     }
@@ -173,92 +195,4 @@ public class Proyecto : MonoBehaviour
         sr.Close();
 
     }
-
-/*
-    void CambioNombre(ChangeEvent<string> e) 
-    {
-        if (selecIndividuo != null) selecIndividuo.Nombre = e.newValue;
-    }
-
-    void CambioApellido(ChangeEvent<string> e) 
-    {
-        if (selecIndividuo != null) selecIndividuo.Apellido = e.newValue;
-    }
-
-    void CambioImagen(ClickEvent e)
-    {
-        Texture2D imagen = (e.target as VisualElement).style.backgroundImage.value.texture;
-        if (selecIndividuo != null)
-        {
-            selecIndividuo.BackgroundTexture = imagen;
-        }
-    }
-
-
-    void SeleccionTarjeta(ClickEvent e)
-    {
-        VisualElement tarjeta = e.target as VisualElement;
-        selecIndividuo = tarjeta.userData as IndividuoP6;
-
-        inputNombre.SetValueWithoutNotify(selecIndividuo.Nombre);
-        inputApellido.SetValueWithoutNotify(selecIndividuo.Apellido);
-
-        toggleModificar.value = true;
-
-        tarjetasBordeNegro();
-        tarjetaBordeBlanco(tarjeta);
-    }
-
-    void NuevaTarjeta(ClickEvent e) 
-    {
-        if (!toggleModificar.value && listaIndividuos.Count < 9) 
-        {
-            if (assetTarjeta == null) 
-            {
-                Debug.LogError("Plantilla no detectada, añade la plantilla de la tarjeta al campo serializado 'assetTarjeta'");
-            }
-            else
-            {
-                VisualElement nuevaTarjeta = assetTarjeta.Instantiate();
-                IndividuoP6 individuo = new IndividuoP6(inputNombre.value, inputApellido.value);
-                TarjetaP6 tarjetaData = new TarjetaP6(nuevaTarjeta, individuo);
-
-                contenerdorDerecha.Add(nuevaTarjeta);
-                
-                selecIndividuo = individuo;
-
-                tarjetasBordeNegro();
-                tarjetaBordeBlanco(nuevaTarjeta);
-
-                listaIndividuos.Add(individuo);
-            }
-        }
-    }
-
-    void tarjetasBordeNegro() 
-    {
-        List<VisualElement> listaTarjetas = contenerdorDerecha.Children().ToList();
-        listaTarjetas.ForEach(
-            elem => 
-            {
-                VisualElement tarjeta = elem.Q("Card");
-
-                tarjeta.style.borderBottomColor = Color.black;
-                tarjeta.style.borderTopColor    = Color.black;
-                tarjeta.style.borderRightColor  = Color.black;
-                tarjeta.style.borderLeftColor   = Color.black;
-            }
-        );
-    }
-
-    void tarjetaBordeBlanco(VisualElement tarjetaRoot) 
-    {
-        VisualElement tarjeta = tarjetaRoot.Q("Card");
-
-        tarjeta.style.borderBottomColor = Color.white;
-        tarjeta.style.borderTopColor    = Color.white;
-        tarjeta.style.borderRightColor  = Color.white;
-        tarjeta.style.borderLeftColor   = Color.white;
-    }
-*/
 }

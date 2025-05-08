@@ -24,7 +24,7 @@
                 </ui:VisualElement>
                 <ui:VisualElement name="items" style="flex-grow: 1;">
                     <ui:VisualElement name="items_body" class="blue1Bg container" style="flex-grow: 1; padding-top: 15px; padding-right: 15px; padding-bottom: 15px; padding-left: 15px; flex-wrap: wrap; display: flex;">
-                        <DripControl name="menu_body_blue" class="item" style="background-image: resource(&apos;Images/triangle_blue&apos;);" />
+                        <DripControl name="menu_body_blue" drip="10" class="item" style="background-image: resource(&apos;Images/triangle_blue&apos;);" />
                         <DripControl name="menu_body_purple" class="item" style="background-image: resource(&apos;Images/triangle_purple&apos;);" />
                         <DripControl name="menu_body_green" class="item" style="background-image: resource(&apos;Images/triangle_green&apos;);" />
                         <DripControl name="menu_body_orange" class="item" style="background-image: resource(&apos;Images/triangle_orange&apos;);" />
@@ -68,7 +68,7 @@
         <ui:Instance template="character" name="character" />
         <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="returnButton" class="button" style="position: absolute; left: 75px; top: 75px; background-color: rgba(255, 255, 255, 0); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; width: 150px; height: 150px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; background-image: resource(&apos;Images/arrow_left&apos;); -unity-background-scale-mode: scale-to-fit;" />
         <ui:VisualElement name="level" class="position-absolute" style="flex-grow: 1; height: 30%; top: 70%; justify-content: center; align-items: center;">
-            <ui:ProgressBar value="22" title="DRIP LEVEL" style="width: 50%; height: 50%; justify-content: center;" />
+            <ui:ProgressBar value="22" title="DRIP LEVEL" name="dripBar" style="width: 50%; height: 50%; justify-content: center;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

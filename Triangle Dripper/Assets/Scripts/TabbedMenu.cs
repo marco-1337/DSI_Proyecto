@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 public class TabbedMenu : MonoBehaviour
 {
 
-    #region menu personalización
+    #region menu personalizaciï¿½n
 
     VisualElement tabs;
     VisualElement items;
@@ -68,7 +68,7 @@ public class TabbedMenu : MonoBehaviour
         UIDocument document = GetComponent<UIDocument>();
         VisualElement rootve = document.rootVisualElement;
 
-        // MENU PERSONALIZACIÓN
+        // MENU PERSONALIZACIï¿½N
         tabs = rootve.Q("tabs");
         items = rootve.Q("items");
 

@@ -128,6 +128,22 @@ public class TabbedMenu : MonoBehaviour
         dripButton.clicked += showResult;
         returnButton.clicked += showMenu;
 
+
+        showMenu();
+        OcultarContenido();
+        ResetBg();
+        SelectedBg(tab_body);
+    }
+
+    private void OnDisable()
+    {
+        dripButton.clicked -= showResult;
+        returnButton.clicked -= showMenu;
+
+        tab_body.UnregisterCallback<MouseDownEvent>(ev => { });
+        tab_face.UnregisterCallback<MouseDownEvent>(ev => { });
+        tab_hat.UnregisterCallback<MouseDownEvent>(ev => { });
+        tab_accessory.UnregisterCallback<MouseDownEvent>(ev => { });
     }
 
 }

@@ -7,6 +7,8 @@ using UnityEngine.UIElements;
 
 public class DripControl : VisualElement
 {
+
+
     private int _drip;
     public int drip
     {

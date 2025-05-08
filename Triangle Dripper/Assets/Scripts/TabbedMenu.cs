@@ -131,7 +131,7 @@ public class TabbedMenu : MonoBehaviour
 
         showMenu();
         OcultarContenido();
-        items_face.style.display = DisplayStyle.Flex;
+        items_body.style.display = DisplayStyle.Flex;
         ResetBg();
         SelectedBg(tab_body);
     }

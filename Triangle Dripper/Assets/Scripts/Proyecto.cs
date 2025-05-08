@@ -80,6 +80,8 @@ public class Proyecto : MonoBehaviour
         _accessoriesMenuRoot.Children().ToList().ForEach(elem => LowlightSelected(elem));
         _faceMenuRoot.Children().ToList().ForEach       (elem => LowlightSelected(elem));
 
+        _myTriangleData.DripScore = 0;
+
         _bodyRoot.Q<VisualElement>(_myTriangleData.Cuerpo).style.display = DisplayStyle.Flex;
 
         VisualElement m = _bodyMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Cuerpo);
@@ -89,6 +91,7 @@ public class Proyecto : MonoBehaviour
             _hatRoot.Q<VisualElement>(_myTriangleData.Gorro).style.display = DisplayStyle.Flex;
             m = _hatMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Gorro);
             HighlightSelected(m);
+            //_myTriangleData.DripScore += _hatMenuRoot.Q<VisualElement>("menu_" + _myTriangleData.Gorro).userData;
         }
 
         if (_myTriangleData.Accesorio.Length > 0) {

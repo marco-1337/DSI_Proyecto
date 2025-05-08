@@ -80,6 +80,7 @@ public class Triangulo
         }
     }
 
+    [SerializeField]
     private int _dripScore;
     public int DripScore
     {   
@@ -93,5 +94,7 @@ public class Triangulo
         _cara = cara;
         _accesorio = accesorio;
         _gorro = gorro;
+
+        _dripScore = 0;
     } 
 }

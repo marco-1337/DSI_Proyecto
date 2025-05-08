@@ -33,8 +33,12 @@ public class Triangulo
             if (value != _cara)
             {
                 _cara = value;
-                Cambio?.Invoke();
             }
+            else 
+            {
+                _cara = "";
+            }
+            Cambio?.Invoke();
         }
     }
 
@@ -48,8 +52,12 @@ public class Triangulo
             if (value != _accesorio)
             {
                 _accesorio = value;
-                Cambio?.Invoke();
             }
+            else 
+            {
+                _accesorio = "";
+            }
+            Cambio?.Invoke();
         }
     }
 
@@ -63,12 +71,23 @@ public class Triangulo
             if (value != _gorro)
             {
                 _gorro = value;
-                Cambio?.Invoke();
             }
+            else 
+            {
+                _gorro = "";
+            }
+            Cambio?.Invoke();
         }
     }
 
-    public Triangulo(string cuerpo = "a", string cara = "b", string accesorio = "c", string gorro = "d")
+    private int _dripScore;
+    public int DripScore
+    {   
+        get { return _dripScore;}
+        set { _dripScore = value; }
+    }
+
+    public Triangulo(string cuerpo = "body_purple", string cara = "face_neutral", string accesorio = "", string gorro = "hat_mexican")
     {
         _cuerpo = cuerpo;
         _cara = cara;
